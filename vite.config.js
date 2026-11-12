@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
+    host: true,
     // Proxying /api in dev keeps the browser on one origin, so CORS never comes into play.
     proxy: {
       '/api': {
