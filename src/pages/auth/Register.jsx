@@ -110,7 +110,8 @@ export default function Register() {
       });
       setCreated(account);
     } catch (error) {
-      setBanner(error.message);
+      const firstFieldError = error.errors ? Object.values(error.errors)[0] : null;
+      setBanner(firstFieldError || error.message || 'Something went wrong. Please try again.');
       setFieldErrors(error.errors ?? {});
     } finally {
       setSubmitting(false);
